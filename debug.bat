@@ -1,1 +1,0 @@
-gcc -c src/*.c -std=c11 -Wall -m64 -g -I include -I C:/SDL2-w64/include && gcc *.o -o bin/debug/main -L C:/SDL2-w64/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image && start bin/debug/main
