@@ -68,3 +68,10 @@ CGE init_CGE(){
     
     return cge;
 }
+
+typedef enum type type;
+enum type{
+    bg = 1,
+    fg = 2,
+    ui = 3
+};
