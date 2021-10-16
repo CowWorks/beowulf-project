@@ -56,7 +56,7 @@ function main() {
        1.0, -1.0
     ];
 
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions, gl.STATIC_DRAW));
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
     return{
       position: positionBuffer,
@@ -95,9 +95,10 @@ function main() {
     return shader;
   }
 
+  //TODO: Fix the drawScene function
   function drawScene(gl, programInfo, buffers){
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    gl.clearDeph(1.0);
+    gl.clearDepth(1.0);
     gl.enable(gl.DEPTH_TEST);
     gl.depthFunc(gl.LEQUAL);
 
@@ -107,13 +108,13 @@ function main() {
     const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     const zNear = 0.1;
     const zFar = 100.0;
-    const projectionMatrix = mat4.create();
+    //const projectionMatrix = mat4.create();
 
-    mat4.perspective(projectionMatrix, fov, aspect, zNear, zFar);
+    //mat4.perspective(projectionMatrix, fov, aspect, zNear, zFar);
 
-    const modelViewMatrix = mat4.create();
-
-    mat4.translate(modelViewMatrix, modelViewMatrix, [-0.0, 0.0, -6.0]);
+    //const modelViewMatrix = mat4.create();
+   
+    //mat4.translate(modelViewMatrix, modelViewMatrix, [-0.0, 0.0, -6.0]);
 
     {
       const numComponents = 2;
@@ -134,8 +135,8 @@ function main() {
 
     gl.useProgram(programInfo.program);
 
-    gl.uniformMatrix4fv(programInfo.uniformLocations.projectionMatrix, false, projectionMatrix);
-    gl.uniformMatrix4fv(programInfo.uniformLocations.modelViewMatrix, false, modelViewMatrix);
+    //gl.uniformMatrix4fv(programInfo.uniformLocations.projectionMatrix, false, projectionMatrix);
+    //gl.uniformMatrix4fv(programInfo.uniformLocations.modelViewMatrix, false, modelViewMatrix);
 
     {
       const offset = 0;
@@ -144,4 +145,4 @@ function main() {
     }
   }
   
-  window.onload = main;
+ // window.onload = main;

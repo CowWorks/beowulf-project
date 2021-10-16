@@ -1,0 +1,28 @@
+Identifiers:
+scenes - sets of chunks which can be used to define things like the main screen and/or levels
+chunks - groups of entities which take up about one screen size
+entities - used to list all of the entities in the world
+type - used to group entities into groups (Background entities, foreground entities, immortal entities, mortal entities, player entities, and ui entities)
+section - subclass of type which handles
+width - specifies the width of the sprite and collision box
+height - specifies the height of the sprite and collision box
+locationX - specifies the x location of the entity
+locationY - specifies the y location of the entity
+
+
+Outline syntax:
+"chunks"={    
+    "entities"={
+        "player"={
+            "width"={256},
+            "height"={256},
+            "locationX"={100},
+            "locationY"={200},
+        },
+        "Background"={
+            "tree1"={
+
+            }
+        }
+    }
+}
