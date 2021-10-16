@@ -3,7 +3,7 @@
 int main(int argc, char** argv){
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
   CGE application = init_CGE();
-  application.renderWindow("yah mum", 1280, 720);
+  application.renderWindow("Beowulf Project by CowDev - Adrian", 1280, 720);
 
   entity newEntity[] = {
                         application.createEntity(300, 300, 100, 100, "res/images/jake.png")
