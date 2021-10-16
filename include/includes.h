@@ -10,6 +10,16 @@ void update( void );
 
 GLFWwindow* window;
 
+typedef struct camera{
+    float cameraX;
+    float cameraY;
+    float cameraDeltaX;
+    float cameraDeltaY;
+    float cameraAngle;
+}camera;
+
+camera myCamera;
+
 // Basic application
 int main(){
     init();
