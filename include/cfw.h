@@ -21,6 +21,8 @@ struct entity{
 	const char*        type;
 };
 
+entity physicsUpdate( void );
+
 // NOTE(Adrian): Function pointer prototypes for the CGE struct
 typedef    void RENDERWINDOW( const char* nParam, int wParam, int hParam );                          // Makes a window and prepares it for rendering
 typedef    void DESERIALIZEENTITY( void );                                                           // Reads entity data from a file and stores it in memory
@@ -30,6 +32,7 @@ typedef    void CLEAR( void );                                                  
 typedef    entity CREATEENTITY( int width, int height, int xpos, int ypos, const char* texture );    // Creates the instance of an entity and stores it in memory
 typedef    void RENDERENTITY( entity newEntity );                                                    // Renders an entity stored in an struct of the type "entity"
 typedef    void DISPLAY( void );                                                                     // Displays the back buffer
+typedef    entity PHYSICSUPDATE( void );
 
 // NOTE(Adrian): CGE struct which holds all of the basic instructions in CGE
 typedef struct CGE CGE;
@@ -42,6 +45,7 @@ struct CGE{
     CREATEENTITY              *createEntity;
     RENDERENTITY              *renderEntity;
     DISPLAY                        *display;
+    PHYSICSUPDATE            *physicsUpdate;
 };
 
 // Custom includes
@@ -60,6 +64,7 @@ CGE init_CGE(){
     cge.createEntity =              createEntity;
     cge.renderEntity =              renderEntity;
     cge.display =                        display;
+    cge.physicsUpdate = physicsUpdate;
     
     return cge;
 }

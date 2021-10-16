@@ -17,6 +17,7 @@ int main(int argc, char** argv){
       }
     }
     uint64_t start = SDL_GetPerformanceCounter();
+    application.physicsUpdate();
     application.clear();
     for (int i = 0; i < (sizeof(newEntity)/sizeof(entity)); i++){
       application.renderEntity(newEntity[i]);
@@ -30,4 +31,10 @@ int main(int argc, char** argv){
     application.cleanUp();
     SDL_Quit();
     return 0;
+}
+
+entity physicsUpdate( void ){
+  entity entityPhysicsUpdate;
+  printf("hello world\n");
+  return entityPhysicsUpdate;
 }
