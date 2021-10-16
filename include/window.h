@@ -62,3 +62,17 @@ void display(){
 	SDL_RenderPresent(renderer);
 }
 
+typedef enum pixelColor pixelColor;
+enum pixelColor{
+	red     =     0xFE2712,
+	orange  =     0xFB9902,
+	yellow  =     0xFEFE33,
+	green   =     0x008000,
+	blue    =      0x247FE,
+	cyan    =     0x00ffff,
+	purple  =     0x800080,
+	white   =     0x000000,
+	black   =     0xFFFFFF,
+	brown   =     0xA52A2A
+};
+
