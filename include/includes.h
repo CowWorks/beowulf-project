@@ -3,7 +3,9 @@
 #include <windows.h>
 
 // GLFW includes
+#include "GLEW/glew.h"
 #include "GLFW/glfw3.h"
+
 
 //My definitions
 #define    wKey     0x57
@@ -68,6 +70,9 @@ void drawMap(){
 // Basic application
 int main(){
     glfwInit();
+    if(glewInit() != GLEW_OK){
+        printf("Error");
+    }
     window = glfwCreateWindow(1024, 512, "Beowulf", NULL, NULL);
 
     if(!window){
@@ -76,6 +81,17 @@ int main(){
     }
     glfwMakeContextCurrent(window);
     init();
+    float positions[8] = {
+        myCamera.cameraX + 2, myCamera.cameraY + 2,
+        myCamera.cameraX + 2, myCamera.cameraY + 2,
+        myCamera.cameraX - 2, myCamera.cameraY + 2,
+        myCamera.cameraX - 2, myCamera.cameraY + 2,
+    };
+    unsigned int buffer;
+    glGenBuffers(1, &buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    glBufferData(GL_ARRAY_BUFFER, (sizeof(positions) / sizeof(float)), positions, GL_STATIC_DRAW);
+    
 
     while (!glfwWindowShouldClose(window)){
         update();
@@ -85,7 +101,7 @@ int main(){
     return 0;
 }
 
-void render(GLenum mode, int x, int y){
+void renderVoxel(GLenum mode, int x, int y){
     glBegin(mode);
 
     glVertex2i(x + 2, y + 2);

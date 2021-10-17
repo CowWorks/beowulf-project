@@ -1,1 +1,1 @@
-gcc src/*.c -I C:\GLFW\include -L C:\GLFW\lib -lglfw3 -lopengl32 -o bin/beowulf.exe && start bin/beowulf.exe
+gcc src/*.c -L C:\GLFW\lib -lglfw3 -lopengl32 -L C:\GLEW\lib -lglew32s -o bin/beowulf.exe && start bin/beowulf.exe

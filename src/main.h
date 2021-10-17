@@ -40,14 +40,14 @@ camera buttons(){
 
 void drawPlayer(){
     glColor3f(1, 1, 1);
-    glPointSize(8);
-    render(GL_QUADS, myCamera.cameraX, myCamera.cameraY);
+    render(GL_QUADS, 300, 300);
 }
 
 void display(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     //drawMap();
+    drawPlayer();
 
     glfwSwapBuffers(window);
 }
