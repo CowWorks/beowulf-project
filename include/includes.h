@@ -1,5 +1,6 @@
 // System includes
 #include <stdio.h>
+#include <windows.h>
 
 // GLFW includes
 #include "GLFW/glfw3.h"
@@ -23,6 +24,7 @@ camera myCamera;
 // Basic application
 int main(){
     init();
+    camera myCamera;
 
     while (!glfwWindowShouldClose(window)){
         update();

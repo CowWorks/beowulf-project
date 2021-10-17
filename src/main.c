@@ -1,16 +1,50 @@
 #include "../include/includes.h"
 
-void drawCamera(){
-    glColor3f(1, 1, 0);
-    glPointSize(8);
-    /*glBegin(GL_POINTS);
-    glVertex2i(px, py);
-    glEnd();*/
+#define    wKey     0x57
+#define    aKey     0x41
+#define    sKey     0x53
+#define    dKey     0x44
+#define    SHIFT    0x10
+#define    SPACE    0x20
+
+void buttons(){
+
+    for (int i = 0; i < 255; i++){
+        int state = GetAsyncKeyState(i);
+
+        if (state == 1 || state == -32767){
+           switch(i){
+               case wKey:
+               {
+                   printf("W\n");
+               }break;
+               case aKey:
+               {
+                   printf("A\n");
+               }break;
+               case sKey:
+               {
+                   printf("S\n");
+               }break;
+               case dKey:
+               {
+                   printf("D\n");
+               }break;
+               case SHIFT:
+               {
+                   printf("Shift\n");
+               }break;
+               case SPACE:
+               {
+                   printf("Space\n");
+               }break;
+           }
+        }
+    }
 }
 
 void display(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    drawCamera();
     glfwSwapBuffers(window);
 }
 
@@ -29,5 +63,6 @@ int init(){
 
 void update(){
     glfwPollEvents();
+    buttons();
     display();
 }
