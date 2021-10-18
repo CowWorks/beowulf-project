@@ -3,7 +3,7 @@
 #include <windows.h>
 
 // GLFW includes
-#include "GLEW/glew.h"
+#include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
 
@@ -70,9 +70,6 @@ void drawMap(){
 // Basic application
 int main(){
     glfwInit();
-    if(glewInit() != GLEW_OK){
-        printf("Error");
-    }
     window = glfwCreateWindow(1024, 512, "Beowulf", NULL, NULL);
 
     if(!window){
@@ -87,10 +84,10 @@ int main(){
         myCamera.cameraX - 2, myCamera.cameraY + 2,
         myCamera.cameraX - 2, myCamera.cameraY + 2,
     };
-    unsigned int buffer;
-    glGenBuffers(1, &buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    glBufferData(GL_ARRAY_BUFFER, (sizeof(positions) / sizeof(float)), positions, GL_STATIC_DRAW);
+    // unsigned int buffer;
+    // glGenBuffers(1, &buffer);
+    // glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    // glBufferData(GL_ARRAY_BUFFER, (sizeof(positions) / sizeof(float)), positions, GL_STATIC_DRAW);
     
 
     while (!glfwWindowShouldClose(window)){
@@ -101,7 +98,7 @@ int main(){
     return 0;
 }
 
-void renderVoxel(GLenum mode, int x, int y){
+void render(GLenum mode, int x, int y){
     glBegin(mode);
 
     glVertex2i(x + 2, y + 2);
