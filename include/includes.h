@@ -69,6 +69,7 @@ void drawMap(){
 
 // Basic application
 int main(){
+    printf("hello world");
     glfwInit();
     window = glfwCreateWindow(1024, 512, "Beowulf", NULL, NULL);
 
@@ -77,6 +78,10 @@ int main(){
         return -1;
     }
     glfwMakeContextCurrent(window);
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+        printf("Glad probably isn't for u\n");
+        return -1;
+    } 
     init();
     float positions[8] = {
         myCamera.cameraX + 2, myCamera.cameraY + 2,
