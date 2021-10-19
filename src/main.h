@@ -32,6 +32,18 @@ camera buttons(){
                {
                    printf("Space\n");
                }break;
+               case vkReturn:
+               {
+                   printf("Enter\n");
+               }break;
+               case vkBack:
+               {
+                   printf("Backspace\n");
+               }break;
+               case iNum:
+               {
+                   printf("first option\n");
+               }break;
            }
         }
     }
@@ -40,7 +52,7 @@ camera buttons(){
 
 void drawPlayer(){
     glColor3f(1, 1, 1);
-    render(GL_QUADS, 300, 300);
+    glDrawArrays(GL_QUADS, 0, 4);
 }
 
 void display(){

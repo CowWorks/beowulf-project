@@ -14,6 +14,18 @@
 #define    dKey     0x44
 #define    SHIFT    0x10
 #define    SPACE    0x20
+#define    iNum     0x31
+#define    iiNum    0x32
+#define    iiiNum   0x33
+#define    ivNum    0x34
+#define    vNum     0x35
+#define    viNum    0x36
+#define    viiNum   0x37
+#define    viiiNum  0x38
+#define    ixNum    0x39
+#define    xNum     0x30
+#define    vkReturn 0x0D
+#define    vkBack   0x08
 
 #define mapX 8
 #define mapY 8
@@ -69,7 +81,6 @@ void drawMap(){
 
 // Basic application
 int main(){
-    printf("hello world");
     glfwInit();
     window = glfwCreateWindow(1024, 512, "Beowulf", NULL, NULL);
 
@@ -89,11 +100,15 @@ int main(){
         myCamera.cameraX - 2, myCamera.cameraY + 2,
         myCamera.cameraX - 2, myCamera.cameraY + 2,
     };
-    // unsigned int buffer;
-    // glGenBuffers(1, &buffer);
-    // glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    // glBufferData(GL_ARRAY_BUFFER, (sizeof(positions) / sizeof(float)), positions, GL_STATIC_DRAW);
+    unsigned int buffer;
+    glGenBuffers(1, &buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    glBufferData(GL_ARRAY_BUFFER, (sizeof(positions) / sizeof(float)), positions, GL_STATIC_DRAW);
     
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     while (!glfwWindowShouldClose(window)){
         update();
